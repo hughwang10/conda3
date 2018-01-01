@@ -1,10 +1,9 @@
 FROM continuumio/anaconda3
 
+RUN apt-get update --fix-missing
+
 RUN \
-	/opt/conda/bin/conda install jupyter -y --quiet
+	conda update conda -y
 
-# RUN \
-# 	pip install altair
-
-EXPOSE 8888
-CMD ["/bin/bash","-c","/opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"]
+EXPOSE 8889
+CMD ["/bin/bash","-c","/opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8889 --no-browser --allow-root"]
