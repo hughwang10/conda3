@@ -1,0 +1,7 @@
+conda3:
+  build: ./conda3-docker
+  ports:
+    - "8888:8888"
+  volumes:
+    - /home/hugh/myshare/projects/ipynb:/opt/notebooks 
+  entrypoint: sh -c 'jupyter lab --allow-root --ip=* --port=8888 --no-browser --notebook-dir=/opt/notebooks'
